@@ -1,0 +1,8 @@
+{
+  "ignore": ["client*", "public/**/*"],
+  "watch": ["**/*.jsx", "**/*.js"],
+  "execMap": {
+    "js": "babel-node --harmony",
+    "jsx": "babel-node --harmony"
+  }
+}

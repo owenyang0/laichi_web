@@ -1,0 +1,15 @@
+{
+  "env": {
+      "node": true,
+      "mocha": true
+  },
+  "rules": {
+    "eqeqeq": 1,
+    "strict": 0,
+    "quotes": [1, "single"],
+    "no-underscore-dangle": false,
+    "new-cap": false,
+    "no-space-before-semi": false,
+    "no-process-exit": false
+  }
+}
