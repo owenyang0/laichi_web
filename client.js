@@ -4,13 +4,14 @@ import debug from 'debug';
 
 import app from './app';
 
-const bootstrapDebug = debug('Laichi:client')('rehydrating app');
+const bootstrapDebug = debug('Laichi:client');
 const dehydratedState = window.context;
 
 window.React = React;
 
 debug.enable('*');
 
+bootstrapDebug('rehydrating app');
 app.rehydrate(dehydratedState, function (err, context) {
     if (err) {
         throw err;

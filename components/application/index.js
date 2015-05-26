@@ -7,12 +7,14 @@ import ApplicationStore from './store/ApplicationStore';
 var Home = require('../Home');
 var About = require('../About');
 
+
 class Application extends React.Component {
     constructor(props, context) {
         super(props, context);
     }
 
     render() {
+      console.log(Home);
       var Handler = this.props.context.getStore(ApplicationStore).currentRoute.get('handler');
 
       return (

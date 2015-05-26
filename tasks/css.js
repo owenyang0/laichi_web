@@ -2,6 +2,7 @@ var path = require('path');
 var gutil = require('gulp-util');
 var stylus = require('gulp-stylus');
 var autoprefixer = require('autoprefixer-stylus');
+var jeet = require('jeet');
 var _ = require('lodash');
 var taskName = path.basename(__filename, path.extname(__filename));
 
@@ -15,6 +16,7 @@ var defaultConfig = {
   options: {
     use: [
       autoprefixer({ browsers: ['last 5 versions']}),
+      jeet(),
       includeCss(),
       normalize()
     ]
@@ -58,4 +60,3 @@ function normalize() {
     style.include(path.join(process.cwd(), 'node_modules', 'normalize.css'));
   }
 }
-
