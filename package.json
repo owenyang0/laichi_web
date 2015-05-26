@@ -50,6 +50,7 @@
     "koa-qs": "^2.0.0",
     "koa-static": "^1.4.9",
     "normalize.css": "^3.0.3",
+    "ramda": "^0.14.0",
     "react": "^0.13.3",
     "serialize-javascript": "^1.0.0"
   }

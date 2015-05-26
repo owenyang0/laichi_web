@@ -3,9 +3,45 @@ import React from 'react';
 import {connectToStores, provideContext} from 'fluxible/addons';
 import {handleHistory} from 'fluxible-router';
 
+import Recipe from './Recipe.jsx';
+
 class DelicateMenu extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+          recipes: [
+            {
+              image: 'http://lorempixel.com/240/160/food',
+              title: '秋季抗燥汤饮',
+              action: {
+                like: 8888,
+                storeup: 13
+              }
+            },
+            {
+              image: 'http://lorempixel.com/240/160',
+              title: '红豆沙西多士',
+              action: {
+                like: 9999,
+                storeup: 3111
+              }
+            }
+          ]
+        }
+    }
 
     render() {
+
+      const recipes = this.state.recipes;
+
+      var Recipes = recipes.map(function (recipe) {
+        return (
+          <Recipe image={recipe.image}
+              title={recipe.title}
+              action={recipe.action}
+          />
+        )
+      })
 
       return (
         <section className="delicate-menu group">
@@ -23,42 +59,7 @@ class DelicateMenu extends React.Component {
                 </ul>
               </div>
               <div className="section__main--body">
-                <div className="recipe"><img src="http://lorempixel.com/120/80/food"/>
-                  <div className="desc">
-                    <h3 className="desc__title">秋季抗燥汤饮</h3>
-                    <div className="desc__action"><span className="like">1118人点赞</span><span className="storeup">23人收藏</span></div>
-                  </div>
-                </div>
-                <div className="recipe"><img src="http://lorempixel.com/120/80/food"/>
-                  <div className="desc">
-                    <h3 className="desc__title">秋季抗燥汤饮</h3>
-                    <div className="desc__action"><span className="like">1118人点赞</span><span className="storeup">23人收藏</span></div>
-                  </div>
-                </div>
-                <div className="recipe"><img src="http://lorempixel.com/120/80/food"/>
-                  <div className="desc">
-                    <h3 className="desc__title">秋季抗燥汤饮</h3>
-                    <div className="desc__action"><span className="like">1118人点赞</span><span className="storeup">23人收藏</span></div>
-                  </div>
-                </div>
-                <div className="recipe"><img src="http://lorempixel.com/120/80/food"/>
-                  <div className="desc">
-                    <h3 className="desc__title">秋季抗燥汤饮</h3>
-                    <div className="desc__action"><span className="like">1118人点赞</span><span className="storeup">23人收藏</span></div>
-                  </div>
-                </div>
-                <div className="recipe"><img src="http://lorempixel.com/120/80/food"/>
-                  <div className="desc">
-                    <h3 className="desc__title">秋季抗燥汤饮</h3>
-                    <div className="desc__action"><span className="like">1118人点赞</span><span className="storeup">23人收藏</span></div>
-                  </div>
-                </div>
-                <div className="recipe"><img src="http://lorempixel.com/120/80/food"/>
-                  <div className="desc">
-                    <h3 className="desc__title">秋季抗燥汤饮</h3>
-                    <div className="desc__action"><span className="like">1118人点赞</span><span className="storeup">23人收藏</span></div>
-                  </div>
-                </div>
+                {Recipes}
               </div>
             </div>
             <aside className="section__side col span_1_of_4">
