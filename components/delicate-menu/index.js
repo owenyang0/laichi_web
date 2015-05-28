@@ -4,39 +4,34 @@ import {connectToStores, provideContext} from 'fluxible/addons';
 import {handleHistory} from 'fluxible-router';
 
 import Recipe from './Recipe.jsx';
+import recipesApi from '../../requests/recipes';
 
 class DelicateMenu extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-          recipes: [
-            {
-              image: 'http://lorempixel.com/240/160/food',
-              title: '秋季抗燥汤饮',
-              action: {
-                like: 8888,
-                storeup: 13
-              }
-            },
-            {
-              image: 'http://lorempixel.com/240/160',
-              title: '红豆沙西多士',
-              action: {
-                like: 9999,
-                storeup: 3111
-              }
-            }
-          ]
+          recipes: []
         }
+    }
+
+    componentDidMount () {
+      recipesApi.fetchRecipesByType()
+        .then(function(recipes) {
+          this.setState({
+            recipes: recipes
+          });
+        }.bind(this));
     }
 
     render() {
 
       const recipes = this.state.recipes;
 
-      var Recipes = recipes.map(function (recipe) {
+      var Recipes = recipes.map(function (recipe, idx) {
         return (
-          <Recipe image={recipe.image}
+          <Recipe
+              key={recipe.title + idx}
+              image={recipe.image}
               title={recipe.title}
               action={recipe.action}
           />
@@ -59,6 +54,7 @@ class DelicateMenu extends React.Component {
                 </ul>
               </div>
               <div className="section__main--body">
+                {Recipes}
                 {Recipes}
               </div>
             </div>

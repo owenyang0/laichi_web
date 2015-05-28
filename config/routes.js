@@ -1,9 +1,10 @@
+
 export default {
     home: {
         path: '/',
         method: 'get',
-        handler: require('../components/Home'),
-        label: 'Home',
+        // handler: Home,
+        label: 'home',
         action: (context, payload, done) => {
             context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Home | flux-examples | routing' });
             done();
@@ -12,8 +13,8 @@ export default {
     about: {
         path: '/about',
         method: 'get',
-        handler: require('../components/About'),
-        label: 'About',
+        // handler: About,
+        label: 'about',
         action: (context, payload, done) => {
             context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'About | flux-examples | routing' });
             done();

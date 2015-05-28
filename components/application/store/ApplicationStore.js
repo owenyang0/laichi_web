@@ -9,6 +9,7 @@ class ApplicationStore extends BaseStore {
         this.currentPageName = null;
         this.currentPage = null;
         this.pages = routesConfig;
+        this.currentRoute = null;
         this.pageTitle = '';
     }
 
@@ -36,15 +37,16 @@ class ApplicationStore extends BaseStore {
     getPageTitle() {
         return this.pageTitle;
     }
-    getPages() {
-        return this.pages;
+    getCurrentRoute() {
+        return this.currentRoute;
     }
     dehydrate() {
         return {
             currentPageName: this.currentPageName,
             currentPage: this.currentPage,
             pages: this.pages,
-            pageTitle: this.pageTitle
+            pageTitle: this.pageTitle,
+            currentRoute: this.currentRoute
         };
     }
     rehydrate(state) {
@@ -52,6 +54,7 @@ class ApplicationStore extends BaseStore {
         this.currentPage = state.currentPage;
         this.pages = state.pages;
         this.pageTitle = state.pageTitle;
+        this.currentRoute = state.currentRoute;
     }
 
     getState () {
@@ -59,7 +62,8 @@ class ApplicationStore extends BaseStore {
          currentPageName: this.currentPageName,
          currentPage: this.currentPage,
          pages: this.pages,
-         route: this.currentRoute
+         pageTitle: this.pageTitle,
+         currentRoute: this.currentRoute
      };
  }
 }

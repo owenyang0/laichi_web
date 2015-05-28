@@ -41,10 +41,16 @@ function preRender (ctx) {
       }
 
       bootDebug('Exposing context state');
+
+      var s = context
+        .getComponentContext()
+        .getStore(ApplicationStore)
+        .getState();
       var exposed = serialize(Application.dehydrate(context));
+      // var exposed = serialize(s);
 
       bootDebug('Rendering Application component into html');
-      var html = React.renderToStaticMarkup(context.createElement());
+      var html = React.renderToString(context.createElement());
 
       var pageTitle = context
         .getComponentContext()

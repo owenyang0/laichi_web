@@ -4,9 +4,7 @@ html(lang="zh")
     title !{title}
     link(rel="stylesheet", href="/css/app.css")
   block body
-    body !{app}
-      div.
-        h1 Base Template
-    script.
-      window.context = !{context}
+    body
+      div.app !{app}
+    script window.context = !{context}
     script(src="/js/app.js")
