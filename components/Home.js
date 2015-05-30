@@ -10,6 +10,8 @@ class Home extends React.Component {
             <h1> Home Page</h1>
             <DelicateMenu />
             <Hottag />
+            <DelicateMenu />
+            <h1>Footer</h1>
           </div>
         )
     }
