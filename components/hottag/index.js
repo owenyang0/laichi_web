@@ -50,10 +50,16 @@ class Hottag extends React.Component {
         super(props, context);
     }
 
+    randomColor() {
+      var color = Math.round(Math.random() * 0xffffff);
+      return '#' + color.toString(16);
+    }
+
     render() {
       var hotTiles = tiles.hot.map((tile, idx) => {
         return (
           <Tile
+              style={{backgroundColor: this.randomColor()}}
               key={tile.name + idx}
               name={tile.name}
               desc={tile.desc}
@@ -64,6 +70,7 @@ class Hottag extends React.Component {
       var rankTiles = tiles.rank.map((tile, idx) => {
         return (
           <Tile
+              style={{backgroundColor: this.randomColor()}}
               key={tile.name + idx}
               name={tile.name}
               desc={tile.desc}
